@@ -2,6 +2,15 @@
 import torch
 import numpy as np
 
+# 모델 초기화
+model = EDCNN(in_ch=1, out_ch=32, sobel_ch=32)
+criterion = CompoundLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+# GPU 사용 설정
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model.to(device)
+
 def train_and_validate(model, train_loader, val_loader, criterion, optimizer, num_epochs=10, device='cuda'):
     train_losses = np.zeros((num_epochs), dtype=np.float32)
     val_losses = np.zeros((num_epochs), dtype=np.float32)
