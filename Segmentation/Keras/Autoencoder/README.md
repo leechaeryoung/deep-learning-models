@@ -43,6 +43,3 @@ python train_autoencoder.py
 
 The input/output paths must be customized in `data_loader.py` according to your environment (e.g., Google Drive, local).
 
-## License
-
-For research and academic use only.
