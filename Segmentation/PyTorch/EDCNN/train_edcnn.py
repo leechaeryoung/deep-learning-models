@@ -48,3 +48,25 @@ def train_and_validate(model, train_loader, val_loader, criterion, optimizer, nu
         print(f'Epoch [{epoch+1}/{num_epochs}], Train Loss: {avg_train_loss:.4f}, Val Loss: {avg_val_loss:.4f}')
 
     return train_losses, val_losses
+
+
+
+# 모델 학습 및 검증 수행
+train_losses, val_losses = train_and_validate(model, train_loader, val_loader, criterion, optimizer, num_epochs=500, device=device)
+
+# 학습 완료 후 모델 저장
+torch.save(model.state_dict(), "/content/drive/MyDrive/npy_friend/mode_EDCNN.pth")
+print("-------모델이 저장되었습니다.-------")
+
+# 손실 값 시각화 (matplotlib 사용)
+import matplotlib.pyplot as plt
+
+epochs_range = range(1, len(train_losses) + 1)
+plt.plot(epochs_range, train_losses, 'b+', label='Train loss')
+plt.plot(epochs_range, val_losses, 'g+', label='Validation loss')
+plt.xlabel('Epoch')
+plt.ylabel('loss')
+plt.legend()
+plt.title('Train and Validation loss')
+
+plt.show()
