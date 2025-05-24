@@ -11,6 +11,13 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
+# 모델 파라미터 수 출력
+parapara = 0
+for name, param in model.named_parameters():
+    print(f"Parameters: {param.numel()}")
+    parapara += param.numel()
+print(f'총 파라미터 수: {parapara}')
+
 def train_and_validate(model, train_loader, val_loader, criterion, optimizer, num_epochs=10, device='cuda'):
     train_losses = np.zeros((num_epochs), dtype=np.float32)
     val_losses = np.zeros((num_epochs), dtype=np.float32)
