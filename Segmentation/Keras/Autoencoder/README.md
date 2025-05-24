@@ -21,17 +21,6 @@ This repository provides a Keras implementation of a basic Autoencoder model for
 - Calculates evaluation metrics (PSNR, SSIM, MSE)
 - Displays training and validation loss graph
 
-## File Structure
-
-```
-Segmentation/
-└── Keras/
-    └── Autoencoder/
-        ├── train_autoencoder.py
-        ├── data_loader.py
-        └── model/
-            └── autoencoder.py
-```
 
 ## How to Run
 
