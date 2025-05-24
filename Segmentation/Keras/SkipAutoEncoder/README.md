@@ -28,5 +28,5 @@ Train the model and evaluate:
 
 ```bash
 python train_skipauto.py
-
+```
 Input/output file paths must be individually specified in data_loader.py and train_skipauto.py depending on your local or cloud environment.
